@@ -1,0 +1,11 @@
+$query = "SELECT citas.id, citas.Hora, CONCAT(usuarios.Nombre, ' ', usuarios.Apellido) AS Cliente,";
+$query .= " usuarios.Email, usuarios.Telefono, servicios.Nombre AS Servicios, servicios.Precio";
+$query .= " FROM citas"; 
+$query .= " LEFT OUTER JOIN usuarios";
+$query .= " ON"; 
+$query .= " citas.usuarioId = usuarios.id LEFT OUTER JOIN citas_servicios";
+$query .= " ON"; 
+$query .= " citas_servicios.citaId = citas.id";
+$query .= " LEFT OUTER JOIN servicios";
+$query .= " ON"; 
+$query .= " servicios.id = citas_servicios.servicioId;";
