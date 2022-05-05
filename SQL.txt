@@ -1,0 +1,10 @@
+SELECT citas.id, citas.Hora, CONCAT(usuarios.Nombre, ' ', usuarios.Apellido) AS Cliente,
+usuarios.Email, usuarios.Telefono, servicios.Nombre AS Servicios, servicios.Precio
+FROM citas 
+LEFT OUTER JOIN usuarios ON 
+citas.usuarioId = usuarios.id LEFT OUTER JOIN citas_servicios 
+ON 
+citas_servicios.citaId = citas.id
+LEFT OUTER JOIN servicios
+ON 
+servicios.id = citas_servicios.servicioId;
